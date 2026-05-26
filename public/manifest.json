@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Raul Mora Code",
+  "short_name": "raulmoracode",
+  "description": "Hi, I'm Raul Mora. Custom Chrome new tab experience built with React + Vite.",
+  "version": "1.0.0",
+  "author": "Raul Mora",
+  "homepage_url": "https://raulmoracode.com",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "permissions": ["storage"],
+
+  "action": {
+    "default_title": "Raul Mora Code"
+  },
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
