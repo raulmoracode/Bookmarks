@@ -1,15 +1,11 @@
-const { fontFamily } = require("tailwindcss/defaultTheme");
-
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  // ...otras configuraciones
+export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Geist", ...fontFamily.sans],
-        mono: ["Geist Mono", ...fontFamily.mono],
+        sans: ["Geist", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["Geist Mono", "ui-monospace", "monospace"],
       },
     },
   },
-  // ...otros plugins
-};
+} satisfies import("tailwindcss").Config;
