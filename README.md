@@ -1,73 +1,94 @@
-# React + TypeScript + Vite
+# Bookmarks / ChromePage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal browser new-tab experience built with **Vite**, **React**, **TypeScript**, and **Tailwind CSS**. It works as a personal link hub and browser extension landing page.
 
-Currently, two official plugins are available:
+![Screenshot](./public/demo.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Requirements
 
-## React Compiler
+- **Node.js** 20 or newer
+- **pnpm** recommended
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Installation
 
-## Expanding the ESLint configuration
+1. Clone the repository:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+   ```bash
+   git clone https://github.com/raulmoracode/Bookmarks.git
+   cd Bookmarks
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. Install dependencies:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+   ```bash
+   pnpm install
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+   If you prefer `npm`, you can use:
+
+   ```bash
+   npm install
+   ```
+
+## Development
+
+Start the local development server with:
+
+```bash
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Then open the URL shown in the terminal, usually:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+http://localhost:5173
 ```
+
+## Production Build
+
+Generate the optimized extension bundle with:
+
+```bash
+pnpm build
+```
+
+This creates the production files inside the `dist/` folder.
+
+## Load the Extension in Chrome
+
+1. Open `chrome://extensions`
+2. Enable **Developer mode**
+3. Click **Load unpacked**
+4. Select the generated `dist/` folder
+
+## Load the Extension in Firefox
+
+1. Open `about:debugging#/runtime/this-firefox`
+2. Click **Load Temporary Add-on**
+3. Select the `manifest.json` file inside the generated `dist/` folder
+
+## Project Structure
+
+- `src/App.tsx` — application entry component
+- `src/components/Pagebase.tsx` — main page layout
+- `src/const/info.ts` — link data and content configuration
+- `public/` — static assets, including `manifest.json` and fonts
+
+## Available Scripts
+
+- `pnpm dev` — start the Vite development server
+- `pnpm build` — type-check and build the project for production
+- `pnpm preview` — preview the production build locally
+- `pnpm lint` — run ESLint across the project
+
+## Tech Stack
+
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS 4
+
+## Author
+
+Raúl Mora  
+contact@raulmoracode.com
